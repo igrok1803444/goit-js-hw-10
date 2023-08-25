@@ -1,8 +1,9 @@
 import SlimSelect from 'slim-select';
-import { fetchBreeds } from './cat-ip.js';
-export { toFillSelectData };
+import { fetchCatByBreed } from './cat-ip';
+export { toFillSelectData, renderCatInfo };
 const DOMNavigation = {
   selectElement: document.querySelector('.breed-select'),
+  catInfoElement: document.querySelector('.cat-info'),
 };
 
 const selectDataArray = [];
@@ -12,16 +13,19 @@ const select = new SlimSelect({
   data: selectDataArray,
   events: {
     afterChange: newVal => {
-      console.log(newVal);
+      fetchCatByBreed(newVal[0].value);
     },
   },
 });
 function toFillSelectData(dataArray) {
   dataArray.forEach(element => {
-    const markup = { text: element.name, id: element.id };
+    const markup = { text: element.name, value: element.id };
 
     selectDataArray.push(markup);
   });
-  console.log(selectDataArray);
   select.setData(selectDataArray);
+}
+function renderCatInfo(catInfoObject) {
+  const markup = `<img src='${catInfoObject.url}'>`;
+  console.log(markup);
 }
