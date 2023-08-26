@@ -13,6 +13,7 @@ function fetchBreeds() {
     .then(response => {
       toFillSelectData(response.data);
       DOMNavigation.loader.style.display = 'none';
+      DOMNavigation.selectElement.classList.remove('is-hidden');
     })
     .catch(erorr => {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');

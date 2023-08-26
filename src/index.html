@@ -12,6 +12,9 @@
 
         margin: 0 auto;
       }
+      .breed-select.is-hidden {
+        display: none;
+      }
       .cat-info {
         margin-top: 24px;
       }
@@ -65,8 +68,8 @@
       }
     </style>
     <section class="wrapper">
-      <select class="breed-select"></select>
-      <div class="loader-container" hidden>
+      <select class="breed-select is-hidden"></select>
+      <div class="loader-container">
         <span class="loader"></span>
         <p class="loader-desc">Loading data, please wait...</p>
       </div>
