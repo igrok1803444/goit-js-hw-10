@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { Notify } from 'notiflix';
-import { toFillSelectData, renderCatInfo } from './render-interface';
+import {
+  toFillSelectData,
+  renderCatInfo,
+  DOMNavigation,
+} from './render-interface';
 export { fetchBreeds, fetchCatByBreed };
 
 function fetchBreeds() {
   axios
     .get('https://api.thecatapi.com/v1/breeds')
     .then(response => {
-      // return response.data;
       toFillSelectData(response.data);
+      DOMNavigation.loader.style.display = 'none';
     })
     .catch(erorr => {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');
