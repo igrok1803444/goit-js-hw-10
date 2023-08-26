@@ -29,7 +29,7 @@ function toFillSelectData(dataArray) {
   select.setData(selectDataArray);
 }
 function renderCatInfo(catInfoObject) {
-  const markup = `<img class='cat-info-photo' src='${catInfoObject.url}' alt='photo of ${catInfoObject.breeds[0].name}' width='50%'>
+  const markup = `<img class='cat-info-photo' src='${catInfoObject.url}' alt='photo of ${catInfoObject.breeds[0].name}' width='50% height='auto'>
   <div class='cat-info-text-container'>
     <h2 class='cat-breed'>${catInfoObject.breeds[0].name}</h2>
     <p class='cat-desc'>${catInfoObject.breeds[0].description}</p>
